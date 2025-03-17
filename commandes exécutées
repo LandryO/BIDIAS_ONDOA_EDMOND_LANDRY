@@ -1,0 +1,21 @@
+mkdir TP_Docker
+cd TP_Docker
+git init
+New-Item -Path . -Name "Dockerfile" -ItemType "File"
+New-Item -Path . -Name "app.py" -ItemType "File"
+New-Item -Path . -Name "requirements.txt" -ItemType "File"
+notepad Dockerfile
+notepad app.py
+notepad requirements.txt
+docker build -t bidias_ondoa-flask-app .
+docker images
+docker run -d -p 5000:5000 bidias_ondoa-flask-app
+docker ps
+docker login
+docker tag bidias_ondoa-flask-app landry795/flask-app
+docker push landry795/flask-app
+git add .
+git commit -m "Ajout du projet Docker"
+git branch -M main
+git remote add origin https://github.com/landry795/TP_Docker.git
+git push -u origin main
